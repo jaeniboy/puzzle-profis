@@ -1,0 +1,52 @@
+@import "tailwindcss";
+
+/* Custom CSS Variables for our theme */
+@theme {
+  --color-primary-50: #fef7ff;
+  --color-primary-100: #fdeeff;
+  --color-primary-200: #fcddff;
+  --color-primary-300: #f9bcff;
+  --color-primary-400: #f491ff;
+  --color-primary-500: #ed66ff;
+  --color-primary-600: #db3cff;
+  --color-primary-700: #c223ff;
+  --color-primary-800: #a11dd4;
+  --color-primary-900: #8719ab;
+}
+
+/* Disable text selection and context menus for kid-friendly experience */
+* {
+  user-select: none;
+  -webkit-touch-callout: none;
+  -webkit-tap-highlight-color: transparent;
+}
+
+/* Disable pull-to-refresh on mobile */
+html, body {
+  overscroll-behavior: none;
+  touch-action: pan-x pan-y;
+}
+
+/* Prevent long-press context menu */
+img, div, span, button {
+  -webkit-user-select: none;
+  -webkit-touch-callout: none;
+  -webkit-context-menu: none;
+}
+button:focus,
+button:focus-visible {
+  outline: 4px auto -webkit-focus-ring-color;
+}
+
+@media (prefers-color-scheme: light) {
+  :root {
+    color: #213547;
+    background-color: #ffffff;
+  }
+  a:hover {
+    color: #747bff;
+  }
+  button {
+    background-color: #f9f9f9;
+  }
+}
