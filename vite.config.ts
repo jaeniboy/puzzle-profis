@@ -11,5 +11,5 @@ export default defineConfig({
     environment: 'jsdom',
     setupFiles: './src/test/setup.ts',
   },
-  base: '/puzzle-profis/', // GitHub Pages base path
+  base: '/puzzle-profis/dist/', // GitHub Pages base path
 })
