@@ -1,5 +1,5 @@
 import { useState } from 'react'
-import { HomeScreen } from './components'
+import { HomeScreen, NavBar } from './components'
 import { sampleImages } from './data/images'
 import type { PuzzleImage, AppScreen } from './types'
 
@@ -57,8 +57,16 @@ function App() {
   }
 
   return (
-    <div className="app">
-      {renderCurrentScreen()}
+    <div className="app flex flex-col min-h-screen">
+      <div className="h-16">
+      <NavBar 
+        onHomeClick={() => setCurrentScreen('home')} 
+        onResumeClick={() => setCurrentScreen('game')} 
+      />
+      </div>
+      <div className="flex-grow"> {/* Ensure content takes remaining space */}
+        {renderCurrentScreen()}
+      </div>
     </div>
   )
 }
