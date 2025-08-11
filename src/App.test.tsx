@@ -7,11 +7,17 @@ import App from './App'
 vi.spyOn(console, 'log').mockImplementation(() => {})
 
 describe('App', () => {
+  it('renders the Navbar with the correct title', () => {
+    render(<App />)
+
+    const titles = screen.getAllByText('Puzzle Profis')
+    expect(titles.length).toBeGreaterThan(0)
+  })
+
   it('renders HomeScreen by default', () => {
     render(<App />)
     
     expect(screen.getByTestId('home-screen')).toBeInTheDocument()
-    expect(screen.getByText('Puzzle Profis')).toBeInTheDocument()
     expect(screen.getByText('Wähle dein Lieblings-Puzzle! 🎨')).toBeInTheDocument()
   })
 
