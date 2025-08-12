@@ -6,6 +6,23 @@ import App from './App'
 // Mock console.log to avoid noise in tests
 vi.spyOn(console, 'log').mockImplementation(() => {})
 
+// Mock für die puzzle utils
+vi.mock('./utils/puzzleUtils', () => ({
+  splitImageIntoParts: vi.fn().mockResolvedValue([
+    'data:image/png;base64,piece1',
+    'data:image/png;base64,piece2',
+    'data:image/png;base64,piece3',
+    'data:image/png;base64,piece4',
+    'data:image/png;base64,piece5',
+    'data:image/png;base64,piece6',
+    'data:image/png;base64,piece7',
+    'data:image/png;base64,piece8',
+    'data:image/png;base64,piece9'
+  ]),
+  shuffleArray: vi.fn((arr) => [...arr]),
+  isPuzzleComplete: vi.fn().mockReturnValue(false)
+}));
+
 describe('App', () => {
   it('renders the Navbar with the correct title', () => {
     render(<App />)
@@ -39,9 +56,9 @@ describe('App', () => {
     // Click on the first image
     await user.click(screen.getByTestId('image-option-20'))
     
-    // Should show game screen placeholder
-    expect(screen.getByText('Game Screen (Coming Soon)')).toBeInTheDocument()
-    expect(screen.getByText('Selected: Bunte Blumen 🌺')).toBeInTheDocument()
+    // Should show game screen with image name (instead of loading since mock resolves immediately)
+    expect(screen.getByText('Bunte Blumen 🌺')).toBeInTheDocument()
+    expect(screen.getByText('Ziehe die Teile an die richtige Stelle! 🎯')).toBeInTheDocument()
   })
 
   it('can navigate back to home from game screen', async () => {
@@ -50,23 +67,22 @@ describe('App', () => {
     
     // Go to game screen
     await user.click(screen.getByTestId('image-option-20'))
-    expect(screen.getByText('Game Screen (Coming Soon)')).toBeInTheDocument()
+    expect(screen.getByText('Bunte Blumen 🌺')).toBeInTheDocument()
     
-    // Go back to home
-    await user.click(screen.getByText('Back to Home'))
+    // Go back to home via navbar
+    await user.click(screen.getByText('Startseite'))
     expect(screen.getByTestId('home-screen')).toBeInTheDocument()
   })
 
-  it('logs selected image when navigating to game', async () => {
+  it('navigates to game when image is selected', async () => {
     const user = userEvent.setup()
     render(<App />)
     
     await user.click(screen.getByTestId('image-option-237'))
     
-    expect(console.log).toHaveBeenCalledWith('Selected image:', expect.objectContaining({
-      id: '237',
-      name: 'Niedliche Tiere 🐱'
-    }))
+    // Should show the game screen with image name
+    expect(screen.getByText('Niedliche Tiere 🐱')).toBeInTheDocument()
+    expect(screen.getByText('Ziehe die Teile an die richtige Stelle! 🎯')).toBeInTheDocument()
   })
 
   it('handles navigation between different screens', async () => {
@@ -78,11 +94,10 @@ describe('App', () => {
     
     // Navigate to game
     await user.click(screen.getByTestId('image-option-40'))
-    expect(screen.getByText('Game Screen (Coming Soon)')).toBeInTheDocument()
-    expect(screen.getByText('Selected: Süße Welpen 🐶')).toBeInTheDocument()
+    expect(screen.getByText('Süße Welpen 🐶')).toBeInTheDocument()
     
-    // Navigate back to home
-    await user.click(screen.getByText('Back to Home'))
+    // Navigate back to home via navbar
+    await user.click(screen.getByText('Startseite'))
     expect(screen.getByTestId('home-screen')).toBeInTheDocument()
   })
 
