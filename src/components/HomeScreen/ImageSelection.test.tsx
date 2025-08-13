@@ -35,8 +35,8 @@ describe('ImageSelection', () => {
   it('renders all provided images', () => {
     render(<ImageSelection images={mockImages} onImageSelect={() => {}} />)
     
-    mockImages.forEach((image, index) => {
-      expect(screen.getByText(`Puzzle ${index + 1}`)).toBeInTheDocument()
+    mockImages.forEach((image) => {
+      expect(screen.getByTestId(`image-option-${image.id}`)).toBeInTheDocument()
       expect(screen.getByAltText(image.alt)).toBeInTheDocument()
     })
   })

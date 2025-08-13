@@ -23,12 +23,12 @@ export const ImageSelection: React.FC<ImageSelectionProps> = ({
           {images.map((image, index) => (
             <div
               key={image.id}
-              className="bg-white rounded-2xl shadow-lg p-6 transform transition-all duration-200 hover:scale-102 cursor-pointer group"
+              className="bg-white rounded-2xl shadow-lg p-4 transform transition-all duration-200 hover:scale-102 cursor-pointer group"
               onClick={() => onImageSelect(image)}
               data-testid={`image-option-${image.id}`}
               onContextMenu={(e) => e.preventDefault()} // Disable context menu
             >
-              <div className="aspect-square overflow-hidden rounded-2xl mb-3">
+              <div className="aspect-square overflow-hidden rounded-2xl">
                 <img
                   src={image.src}
                   alt={image.alt}
@@ -36,9 +36,6 @@ export const ImageSelection: React.FC<ImageSelectionProps> = ({
                   draggable={false} // Disable image dragging
                 />
               </div>
-              <p className="text-center font-family-[Comic_Sans_MS,cursive,sans-serif] font-semibold text-gray-700 text-sm">
-                Puzzle {index + 1}
-              </p>
             </div>
           ))}
         </div>

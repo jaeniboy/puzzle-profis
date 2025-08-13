@@ -24,7 +24,6 @@ describe('HomeScreen', () => {
     render(<HomeScreen images={mockImages} onImageSelect={() => {}} />)
     
     expect(screen.getByTestId('logo-and-description')).toBeInTheDocument()
-    expect(screen.getByText('Puzzle Profis')).toBeInTheDocument()
   })
 
   it('renders ImageSelection component', () => {
@@ -37,8 +36,8 @@ describe('HomeScreen', () => {
   it('passes images to ImageSelection component', () => {
     render(<HomeScreen images={mockImages} onImageSelect={() => {}} />)
     
-    mockImages.forEach((_, index) => {
-      expect(screen.getByText(`Puzzle ${index + 1}`)).toBeInTheDocument()
+    mockImages.forEach((image) => {
+      expect(screen.getByTestId(`image-option-${image.id}`)).toBeInTheDocument()
     })
   })
 

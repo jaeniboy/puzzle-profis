@@ -41,12 +41,23 @@ describe('App', () => {
   it('shows all sample images on home screen', () => {
     render(<App />)
     
-    // Check that generic puzzle names appear
-    expect(screen.getByText('Puzzle 1')).toBeInTheDocument()
-    expect(screen.getByText('Puzzle 2')).toBeInTheDocument()
-    expect(screen.getByText('Puzzle 3')).toBeInTheDocument()
-    expect(screen.getByText('Puzzle 4')).toBeInTheDocument()
-    expect(screen.getByText('Puzzle 5')).toBeInTheDocument()
+    // Check that image options are available via data-testid
+    expect(screen.getByTestId('image-option-1')).toBeInTheDocument()
+    expect(screen.getByTestId('image-option-2')).toBeInTheDocument()
+    expect(screen.getByTestId('image-option-3')).toBeInTheDocument()
+    expect(screen.getByTestId('image-option-4')).toBeInTheDocument()
+    expect(screen.getByTestId('image-option-5')).toBeInTheDocument()
+    expect(screen.getByTestId('image-option-6')).toBeInTheDocument()
+    expect(screen.getByTestId('image-option-7')).toBeInTheDocument()
+    expect(screen.getByTestId('image-option-8')).toBeInTheDocument()
+    expect(screen.getByTestId('image-option-9')).toBeInTheDocument()
+    expect(screen.getByTestId('image-option-10')).toBeInTheDocument()
+    expect(screen.getByTestId('image-option-11')).toBeInTheDocument()
+    expect(screen.getByTestId('image-option-12')).toBeInTheDocument()
+    
+    // Check that we have the expected number of images
+    const imageOptions = screen.getAllByTestId(/^image-option-\d+$/)
+    expect(imageOptions).toHaveLength(12)
   })
 
   it('navigates to game screen when an image is selected', async () => {

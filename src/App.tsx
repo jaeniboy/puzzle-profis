@@ -64,14 +64,12 @@ function App() {
   }
 
   return (
-    <div className="app flex flex-col min-h-screen">
-      <div className="h-16">
+    <div className="app flex flex-col h-screen pt-16">
         <NavBar 
           onHomeClick={handleBackToHome} 
           onResumeClick={() => selectedImage && setCurrentScreen('game')} 
         />
-      </div>
-      <div className="flex-grow">
+      <div className="flex-grow overflow-hidden">
         {renderCurrentScreen()}
       </div>
     </div>
