@@ -20,7 +20,7 @@ export const ImageSelection: React.FC<ImageSelectionProps> = ({
       
       <div className="max-h-96 overflow-y-auto px-2" data-testid="image-grid-container">
         <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4">
-          {images.map((image, index) => (
+          {images.map((image) => (
             <div
               key={image.id}
               className="bg-white rounded-2xl shadow-lg p-4 transform transition-all duration-200 hover:scale-102 cursor-pointer group"
