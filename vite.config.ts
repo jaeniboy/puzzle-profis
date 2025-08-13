@@ -34,6 +34,9 @@ export default defineConfig({
       }
     })
   ],
+  build: {
+    assetsInlineLimit: 0, // Verhindert Inlining von Assets
+  },
   test: {
     globals: true,
     environment: 'jsdom',

@@ -41,23 +41,23 @@ describe('App', () => {
   it('shows all sample images on home screen', () => {
     render(<App />)
     
-    // Check that image names appear
-    expect(screen.getByText('Bunte Blumen 🌺')).toBeInTheDocument()
-    expect(screen.getByText('Niedliche Tiere 🐱')).toBeInTheDocument()
-    expect(screen.getByText('Süße Welpen 🐶')).toBeInTheDocument()
-    expect(screen.getByText('Zauberhafte Landschaft 🏞️')).toBeInTheDocument()
-    expect(screen.getByText('Fröhliche Freunde 👫')).toBeInTheDocument()
+    // Check that generic puzzle names appear
+    expect(screen.getByText('Puzzle 1')).toBeInTheDocument()
+    expect(screen.getByText('Puzzle 2')).toBeInTheDocument()
+    expect(screen.getByText('Puzzle 3')).toBeInTheDocument()
+    expect(screen.getByText('Puzzle 4')).toBeInTheDocument()
+    expect(screen.getByText('Puzzle 5')).toBeInTheDocument()
   })
 
   it('navigates to game screen when an image is selected', async () => {
     const user = userEvent.setup()
     render(<App />)
     
-    // Click on the first image
-    await user.click(screen.getByTestId('image-option-20'))
+    // Click on the first image (index 0 = id "1")
+    await user.click(screen.getByTestId('image-option-1'))
     
     // Should show game screen with image name (instead of loading since mock resolves immediately)
-    expect(screen.getByText('Bunte Blumen 🌺')).toBeInTheDocument()
+    expect(screen.getByText('Puzzle 1')).toBeInTheDocument()
     expect(screen.getByText('Ziehe die Teile an die richtige Stelle! 🎯')).toBeInTheDocument()
   })
 
@@ -66,8 +66,8 @@ describe('App', () => {
     render(<App />)
     
     // Go to game screen
-    await user.click(screen.getByTestId('image-option-20'))
-    expect(screen.getByText('Bunte Blumen 🌺')).toBeInTheDocument()
+    await user.click(screen.getByTestId('image-option-1'))
+    expect(screen.getByText('Puzzle 1')).toBeInTheDocument()
     
     // Go back to home via navbar
     await user.click(screen.getByText('Startseite'))
@@ -78,10 +78,10 @@ describe('App', () => {
     const user = userEvent.setup()
     render(<App />)
     
-    await user.click(screen.getByTestId('image-option-237'))
+    await user.click(screen.getByTestId('image-option-2'))
     
     // Should show the game screen with image name
-    expect(screen.getByText('Niedliche Tiere 🐱')).toBeInTheDocument()
+    expect(screen.getByText('Puzzle 2')).toBeInTheDocument()
     expect(screen.getByText('Ziehe die Teile an die richtige Stelle! 🎯')).toBeInTheDocument()
   })
 
@@ -93,8 +93,8 @@ describe('App', () => {
     expect(screen.getByTestId('home-screen')).toBeInTheDocument()
     
     // Navigate to game
-    await user.click(screen.getByTestId('image-option-40'))
-    expect(screen.getByText('Süße Welpen 🐶')).toBeInTheDocument()
+    await user.click(screen.getByTestId('image-option-3'))
+    expect(screen.getByText('Puzzle 3')).toBeInTheDocument()
     
     // Navigate back to home via navbar
     await user.click(screen.getByText('Startseite'))

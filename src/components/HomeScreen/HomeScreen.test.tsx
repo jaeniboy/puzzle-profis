@@ -37,8 +37,8 @@ describe('HomeScreen', () => {
   it('passes images to ImageSelection component', () => {
     render(<HomeScreen images={mockImages} onImageSelect={() => {}} />)
     
-    mockImages.forEach(image => {
-      expect(screen.getByText(image.name)).toBeInTheDocument()
+    mockImages.forEach((_, index) => {
+      expect(screen.getByText(`Puzzle ${index + 1}`)).toBeInTheDocument()
     })
   })
 

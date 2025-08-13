@@ -62,37 +62,60 @@ const GameBoard = ({ selectedImage, onPuzzleComplete }: GameBoardProps) => {
     
     if (type === 'availablePart') {
       // Teil aus verfügbaren Teilen ins Grid verschieben
-      if (gridState[targetGridIndex] !== null) return; // Zielfeld ist belegt
-      
       const updatedGrid = [...gridState];
-      updatedGrid[targetGridIndex] = piece;
-      setGridState(updatedGrid);
-
-      // Entferne das Teil aus der partsAreaState
       const updatedPartsArea = [...partsAreaState];
+      
+      // Wenn das Zielfeld bereits belegt ist, verschiebe das bestehende Teil zurück in PartsArea
+      if (gridState[targetGridIndex] !== null) {
+        const displacedPiece = gridState[targetGridIndex]!;
+        // Finde den ersten freien Platz in der partsAreaState
+        const emptyIndex = updatedPartsArea.findIndex(slot => slot === null);
+        if (emptyIndex !== -1) {
+          updatedPartsArea[emptyIndex] = displacedPiece;
+        }
+      }
+      
+      // Platziere das neue Teil im Grid
+      updatedGrid[targetGridIndex] = piece;
+      // Entferne das Teil aus der partsAreaState
       updatedPartsArea[index] = null;
+      
+      setGridState(updatedGrid);
       setPartsAreaState(updatedPartsArea);
       
     } else if (type === 'gridPart') {
       // Teil innerhalb des Grids verschieben
       if (targetGridIndex === index) return; // Gleiches Feld
-      if (gridState[targetGridIndex] !== null) return; // Zielfeld ist belegt
       
       const updatedGrid = [...gridState];
+      const updatedPartsArea = [...partsAreaState];
+      
+      // Wenn das Zielfeld bereits belegt ist, verschiebe das bestehende Teil zurück in PartsArea
+      if (gridState[targetGridIndex] !== null) {
+        const displacedPiece = gridState[targetGridIndex]!;
+        // Finde den ersten freien Platz in der partsAreaState
+        const emptyIndex = updatedPartsArea.findIndex(slot => slot === null);
+        if (emptyIndex !== -1) {
+          updatedPartsArea[emptyIndex] = displacedPiece;
+        }
+      }
+      
+      // Platziere das bewegte Teil im Zielfeld
       updatedGrid[targetGridIndex] = piece;
       updatedGrid[index] = null; // Ursprungsfeld leeren
+      
       setGridState(updatedGrid);
+      setPartsAreaState(updatedPartsArea);
     }
 
-    // Prüfe ob das Puzzle komplett ist
-    const currentGrid = gridState.map((cell, idx) => {
-      if (type === 'availablePart' && idx === targetGridIndex) return piece;
-      if (type === 'gridPart' && idx === targetGridIndex) return piece;
-      if (type === 'gridPart' && idx === index) return null;
-      return cell;
-    });
+    // Prüfe ob das Puzzle komplett ist (verwende den aktualisierten Grid-State)
+    const finalGrid = [...gridState];
+    finalGrid[targetGridIndex] = piece;
+    if (type === 'gridPart') {
+      finalGrid[index] = null;
+    }
     
-    if (isPuzzleComplete(currentGrid, puzzleParts)) {
+    if (isPuzzleComplete(finalGrid, puzzleParts)) {
       setTimeout(() => onPuzzleComplete(), 500);
     }
   };
