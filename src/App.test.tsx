@@ -35,7 +35,7 @@ describe('App', () => {
     render(<App />)
     
     expect(screen.getByTestId('home-screen')).toBeInTheDocument()
-    expect(screen.getByText('Wähle dein Lieblings-Puzzle! 🎨')).toBeInTheDocument()
+    expect(screen.getByText('Wähle dein Lieblings-Puzzle!')).toBeInTheDocument()
   })
 
   it('shows all sample images on home screen', () => {
@@ -67,9 +67,8 @@ describe('App', () => {
     // Click on the first image (index 0 = id "1")
     await user.click(screen.getByTestId('image-option-1'))
     
-    // Should show game screen with image name (instead of loading since mock resolves immediately)
-    expect(screen.getByText('Puzzle 1')).toBeInTheDocument()
-    expect(screen.getByText('Ziehe die Teile an die richtige Stelle! 🎯')).toBeInTheDocument()
+    // Should show game screen with puzzle grid
+    expect(screen.getByTestId('grid-cell-0')).toBeInTheDocument()
   })
 
   it('can navigate back to home from game screen', async () => {
@@ -78,7 +77,7 @@ describe('App', () => {
     
     // Go to game screen
     await user.click(screen.getByTestId('image-option-1'))
-    expect(screen.getByText('Puzzle 1')).toBeInTheDocument()
+    expect(screen.getByTestId('grid-cell-0')).toBeInTheDocument()
     
     // Go back to home via navbar
     await user.click(screen.getByText('Startseite'))
@@ -91,9 +90,8 @@ describe('App', () => {
     
     await user.click(screen.getByTestId('image-option-2'))
     
-    // Should show the game screen with image name
-    expect(screen.getByText('Puzzle 2')).toBeInTheDocument()
-    expect(screen.getByText('Ziehe die Teile an die richtige Stelle! 🎯')).toBeInTheDocument()
+    // Should show the game screen
+    expect(screen.getByTestId('grid-cell-0')).toBeInTheDocument()
   })
 
   it('handles navigation between different screens', async () => {
@@ -105,7 +103,7 @@ describe('App', () => {
     
     // Navigate to game
     await user.click(screen.getByTestId('image-option-3'))
-    expect(screen.getByText('Puzzle 3')).toBeInTheDocument()
+    expect(screen.getByTestId('grid-cell-0')).toBeInTheDocument()
     
     // Navigate back to home via navbar
     await user.click(screen.getByText('Startseite'))

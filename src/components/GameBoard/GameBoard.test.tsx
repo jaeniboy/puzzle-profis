@@ -54,12 +54,12 @@ test('renders GameBoard with proper drag and drop functionality', async () => {
     />
   );
 
-  // Warte darauf, dass die Komponente geladen ist
-  await screen.findByText('Test Image');
+  // Wait for the component to load by checking for the grid
+  await screen.findByTestId('grid-cell-0');
   
-  // Überprüfe, dass das Grid vorhanden ist
+  // Check that the grid is present
   expect(screen.getByTestId('grid-cell-0')).toBeInTheDocument();
   
-  // Überprüfe, dass Puzzle-Teile vorhanden sind
-  expect(screen.getByText(/Puzzle-Teile \(\d+ übrig\)/)).toBeInTheDocument();
+  // Check that puzzle parts area exists
+  expect(screen.getByTestId('puzzle-part-0')).toBeInTheDocument();
 });

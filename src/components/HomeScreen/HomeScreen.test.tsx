@@ -20,17 +20,11 @@ const mockImages: PuzzleImage[] = [
 ]
 
 describe('HomeScreen', () => {
-  it('renders LogoAndDescription component', () => {
-    render(<HomeScreen images={mockImages} onImageSelect={() => {}} />)
-    
-    expect(screen.getByTestId('logo-and-description')).toBeInTheDocument()
-  })
-
   it('renders ImageSelection component', () => {
     render(<HomeScreen images={mockImages} onImageSelect={() => {}} />)
     
     expect(screen.getByTestId('image-selection')).toBeInTheDocument()
-    expect(screen.getByText('Wähle dein Lieblings-Puzzle! 🎨')).toBeInTheDocument()
+    expect(screen.getByText('Wähle dein Lieblings-Puzzle!')).toBeInTheDocument()
   })
 
   it('passes images to ImageSelection component', () => {
@@ -81,7 +75,6 @@ describe('HomeScreen', () => {
     render(<HomeScreen images={[]} onImageSelect={() => {}} />)
     
     expect(screen.getByTestId('home-screen')).toBeInTheDocument()
-    expect(screen.getByTestId('logo-and-description')).toBeInTheDocument()
     expect(screen.getByTestId('image-selection')).toBeInTheDocument()
     expect(screen.getByText('Keine Bilder verfügbar')).toBeInTheDocument()
   })

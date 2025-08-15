@@ -1,5 +1,5 @@
 import React from 'react'
-import { LogoAndDescription } from './LogoAndDescription'
+// import { LogoAndDescription } from './LogoAndDescription'
 import { ImageSelection } from './ImageSelection'
 import type { PuzzleImage } from '../../types'
 

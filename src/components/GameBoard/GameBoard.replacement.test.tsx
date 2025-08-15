@@ -35,10 +35,10 @@ test('replacing pieces in grid moves displaced piece back to parts area', async 
     />
   );
 
-  // Warte bis das Puzzle geladen ist
-  await screen.findByText('Test Image');
+  // Wait until the puzzle grid is loaded
+  await screen.findByTestId('grid-cell-0');
   
-  // Simuliere das Platzieren von Teil A auf Grid-Position 0
+  // Simulate placing part A on grid position 0
   const gridCell0 = screen.getByTestId('grid-cell-0');
   
   // Drag Teil A auf Grid-Position 0
@@ -91,10 +91,10 @@ test('replacing pieces within grid moves displaced piece back to parts area', as
     />
   );
 
-  // Warte bis das Puzzle geladen ist
-  await screen.findByText('Test Image');
+  // Wait until the puzzle grid is loaded
+  await screen.findByTestId('grid-cell-0');
   
-  // Simuliere das Platzieren von Teilen auf verschiedene Grid-Positionen
+  // Simulate placing parts on different grid positions
   const gridCell0 = screen.getByTestId('grid-cell-0');
   const gridCell1 = screen.getByTestId('grid-cell-1');
   

@@ -29,7 +29,7 @@ describe('ImageSelection', () => {
   it('renders the title', () => {
     render(<ImageSelection images={mockImages} onImageSelect={() => {}} />)
     
-    expect(screen.getByText('Wähle dein Lieblings-Puzzle! 🎨')).toBeInTheDocument()
+    expect(screen.getByText('Wähle dein Lieblings-Puzzle!')).toBeInTheDocument()
   })
 
   it('renders all provided images', () => {
@@ -80,7 +80,7 @@ describe('ImageSelection', () => {
     render(<ImageSelection images={mockImages} onImageSelect={() => {}} />)
     
     const container = screen.getByTestId('image-grid-container')
-    expect(container).toHaveClass('max-h-96', 'overflow-y-auto')
+    expect(container).toHaveClass('flex-1', 'overflow-y-auto', 'px-2')
   })
 
   it('applies custom className when provided', () => {

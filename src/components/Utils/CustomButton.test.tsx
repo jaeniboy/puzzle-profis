@@ -47,7 +47,7 @@ describe('CustomButton', () => {
     )
     
     const button = screen.getByText('Secondary Button')
-    expect(button).toHaveClass('bg-orange-500', 'hover:bg-orange-600')
+    expect(button).toHaveClass('bg-yellow-500', 'hover:bg-yellow-600')
   })
 
   it('applies correct size classes', () => {

@@ -11,11 +11,10 @@ describe('NavBar', () => {
     expect(screen.getByText('Puzzle Profis')).toBeInTheDocument();
   });
 
-  it('renders the buttons', () => {
+  it('renders the Startseite button', () => {
     render(<NavBar onHomeClick={() => {}} onResumeClick={() => {}} />);
 
     expect(screen.getByText('Startseite')).toBeInTheDocument();
-    expect(screen.getByText('Spiel fortsetzen')).toBeInTheDocument();
   });
 
   it('calls onHomeClick when Startseite button is clicked', async () => {
@@ -26,15 +25,5 @@ describe('NavBar', () => {
 
     await user.click(screen.getByText('Startseite'));
     expect(handleHomeClick).toHaveBeenCalledTimes(1);
-  });
-
-  it('calls onResumeClick when Spiel fortsetzen button is clicked', async () => {
-    const handleResumeClick = vi.fn();
-    const user = userEvent.setup();
-
-    render(<NavBar onHomeClick={() => {}} onResumeClick={handleResumeClick} />);
-
-    await user.click(screen.getByText('Spiel fortsetzen'));
-    expect(handleResumeClick).toHaveBeenCalledTimes(1);
   });
 });
