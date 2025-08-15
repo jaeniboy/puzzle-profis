@@ -26,7 +26,7 @@ const PuzzlePartsArea = ({
 
   return (
     <div 
-      className="bg-gray-100 p-4 rounded-lg shadow-lg"
+      className=" p-4 rounded-lg"
       data-drop-target="true"
       data-drop-type="parts"
       onDrop={onDrop}
@@ -45,7 +45,7 @@ const PuzzlePartsArea = ({
             key={`part-${index}-${part ? part.substring(0, 20) : 'empty'}`}
             className={`border-2 bg-white h-24 w-24 flex items-center justify-center transition-all shadow-md ${
               part 
-                ? 'border-gray-400 cursor-grab active:cursor-grabbing hover:border-primary-400 hover:scale-105 touch-manipulation' 
+                ? 'border-gray-400 cursor-grab active:cursor-grabbing hover:border-primary-400 touch-manipulation' 
                 : 'border-dashed border-gray-300 bg-gray-50'
             }`}
             draggable={!!part}
