@@ -23,7 +23,7 @@ export const CustomButton: React.FC<CustomButtonProps> = ({
   
   const variantClasses = {
     primary: 'bg-primary-500 hover:bg-primary-600 text-white',
-    secondary: 'bg-orange-500 hover:bg-orange-600 text-white'
+    secondary: 'bg-yellow-500 hover:bg-yellow-600 text-white'
   }
   
   const sizeClasses = {

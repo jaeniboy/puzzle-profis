@@ -6,10 +6,11 @@ interface NavBarProps {
   onResumeClick: () => void;
 }
 
-export const NavBar: React.FC<NavBarProps> = ({ onHomeClick, onResumeClick }) => {
+export const NavBar: React.FC<NavBarProps> = ({ onHomeClick }) => {
+// export const NavBar: React.FC<NavBarProps> = ({ onHomeClick, onResumeClick }) => {
   return (
-    <nav className="fixed top-0 left-0 w-full h-16 bg-primary-500 text-white shadow-lg z-50">
-      <div className="container mx-auto px-4 py-2 flex justify-between items-center">
+    <nav className="flex fixed top-0 left-0 w-full h-16 bg-primary-500 text-white shadow-lg z-50">
+      <div className="container mx-auto px-4 py-1 flex justify-between items-center">
         {/* Logo */}
         <div className="flex items-center space-x-2">
           <span className="text-3xl">🧩</span>
@@ -21,9 +22,9 @@ export const NavBar: React.FC<NavBarProps> = ({ onHomeClick, onResumeClick }) =>
           <CustomButton onClick={onHomeClick} variant="secondary" size="sm">
             Startseite
           </CustomButton>
-          <CustomButton onClick={onResumeClick} variant="secondary" size="sm">
+          {/* <CustomButton onClick={onResumeClick} variant="secondary" size="sm">
             Spiel fortsetzen
-          </CustomButton>
+          </CustomButton> */}
         </div>
       </div>
     </nav>
