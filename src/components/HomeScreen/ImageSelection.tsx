@@ -13,13 +13,15 @@ export const ImageSelection: React.FC<ImageSelectionProps> = ({
   className = ''
 }) => {
   return (
-    <div className={`w-full ${className}`} data-testid="image-selection">
-      <h2 className="text-2xl font-family-[Comic_Sans_MS,cursive,sans-serif] font-bold text-center text-gray-800 mb-6">
-        Wähle dein Lieblings-Puzzle! 🎨
+    <div className={`w-full flex flex-col h-screen ${className}`} data-testid="image-selection">
+    {/* <div className={`w-full ${className}`} data-testid="image-selection"> */}
+      <h2 className="h-12 shrink-0 text-2xl font-family-[Comic_Sans_MS,cursive,sans-serif] font-bold text-center text-gray-800 mb-6">
+        Wähle dein Lieblings-Puzzle!
       </h2>
       
-      <div className="max-h-96 overflow-y-auto px-2" data-testid="image-grid-container">
-        <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4">
+      <div className="flex-1 overflow-y-auto px-2" data-testid="image-grid-container">
+      {/* <div className="max-h-96 overflow-y-auto px-2" data-testid="image-grid-container"> */}
+        <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4 pb-40">
           {images.map((image) => (
             <div
               key={image.id}

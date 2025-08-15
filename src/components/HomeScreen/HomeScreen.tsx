@@ -19,7 +19,7 @@ export const HomeScreen: React.FC<HomeScreenProps> = ({
       <div className="container mx-auto px-4 py-8">
         <div className="space-y-8">
           {/* Logo and Description Section */}
-          <LogoAndDescription />
+          {/* <LogoAndDescription /> */}
           
           {/* Image Selection Section */}
           <div className="max-w-6xl mx-auto">
