@@ -54,10 +54,12 @@ describe('App', () => {
     expect(screen.getByTestId('image-option-10')).toBeInTheDocument()
     expect(screen.getByTestId('image-option-11')).toBeInTheDocument()
     expect(screen.getByTestId('image-option-12')).toBeInTheDocument()
+    expect(screen.getByTestId('image-option-13')).toBeInTheDocument()
+    expect(screen.getByTestId('image-option-14')).toBeInTheDocument()
     
     // Check that we have the expected number of images
     const imageOptions = screen.getAllByTestId(/^image-option-\d+$/)
-    expect(imageOptions).toHaveLength(12)
+    expect(imageOptions).toHaveLength(14)
   })
 
   it('navigates to game screen when an image is selected', async () => {

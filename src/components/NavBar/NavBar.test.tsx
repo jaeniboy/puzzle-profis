@@ -7,7 +7,6 @@ describe('NavBar', () => {
   it('renders the logo and title', () => {
     render(<NavBar onHomeClick={() => {}} onResumeClick={() => {}} />);
 
-    expect(screen.getByText('🧩')).toBeInTheDocument();
     expect(screen.getByText('Puzzle Profis')).toBeInTheDocument();
   });
 

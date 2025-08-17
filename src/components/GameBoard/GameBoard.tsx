@@ -215,22 +215,9 @@ const GameBoard = ({ selectedImage, onPuzzleComplete }: GameBoardProps) => {
   }
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-blue-50 to-purple-50">
-      <div className="flex-grow">
+    <div className="min-h-screen bg-gradient-to-br from-blue-50 to-purple-50" >
+      <div className="flex-grow" onContextMenu={(e) => e.preventDefault()}>
         <div className="container mx-auto px-4 py-8">
-          {/* <div className="text-center mb-6">
-            <h2 className="text-2xl font-family-[Comic_Sans_MS,cursive,sans-serif] font-bold text-primary-600 mb-2">
-              {selectedImage.name}
-            </h2>
-            <p className="text-lg font-family-[Comic_Sans_MS,cursive,sans-serif] text-gray-600">
-              Ziehe die Teile an die richtige Stelle! 🎯
-            </p>
-            <div className="block md:hidden mt-2">
-              <p className="text-sm font-family-[Comic_Sans_MS,cursive,sans-serif] text-gray-500">
-                💡 Auf dem Smartphone: Teile antippen und ziehen
-              </p>
-            </div>
-          </div> */}
           
           <div className="flex flex-col lg:flex-row items-center justify-center gap-8 max-w-6xl mx-auto">
             {/* Puzzle Grid */}
@@ -248,9 +235,6 @@ const GameBoard = ({ selectedImage, onPuzzleComplete }: GameBoardProps) => {
             
             {/* Puzzle Parts Area */}
             <div className="flex-shrink-0">
-              {/* <h3 className="text-lg font-family-[Comic_Sans_MS,cursive,sans-serif] font-bold text-center text-gray-800 mb-4">
-                Puzzle-Teile ({partsAreaState.filter(part => part !== null).length} übrig)
-              </h3> */}
               <PuzzlePartsArea 
                 parts={partsAreaState} 
                 onDragStart={handleDragStart}

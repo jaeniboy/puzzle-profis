@@ -13,7 +13,7 @@ export const NavBar: React.FC<NavBarProps> = ({ onHomeClick }) => {
       <div className="container mx-auto px-4 py-1 flex justify-between items-center">
         {/* Logo */}
         <div className="flex items-center space-x-2">
-          <span className="text-3xl">🧩</span>
+          <span className="text-3xl"><img src="./icon-192x192.png" alt="Logo" className="inline-block w-8 h-8" /></span>
           <h1 className="text-xl font-family-[Comic_Sans_MS,cursive,sans-serif] font-bold">Puzzle Profis</h1>
         </div>
 
@@ -22,9 +22,6 @@ export const NavBar: React.FC<NavBarProps> = ({ onHomeClick }) => {
           <CustomButton onClick={onHomeClick} variant="secondary" size="sm">
             Startseite
           </CustomButton>
-          {/* <CustomButton onClick={onResumeClick} variant="secondary" size="sm">
-            Spiel fortsetzen
-          </CustomButton> */}
         </div>
       </div>
     </nav>

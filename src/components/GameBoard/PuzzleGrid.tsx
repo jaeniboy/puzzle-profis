@@ -35,7 +35,7 @@ const PuzzleGrid = ({
       {gridState.map((cell, index) => (
         <div
           key={index}
-          className="border-2 border-gray-400 bg-white h-24 w-24 flex items-center justify-center relative cursor-pointer hover:border-primary-400 transition-colors touch-manipulation"
+          className="border border-gray-400 bg-white h-24 w-24 flex items-center justify-center relative cursor-pointer hover:border-primary-400 transition-colors touch-manipulation"
           data-testid={`grid-cell-${index}`}
           data-drop-target="true"
           data-drop-type="grid"

@@ -4,20 +4,22 @@ import type { PuzzleImage } from '../types'
 // Fügen Sie einfach neue Bilder zu public/example-images hinzu und führen Sie 'npm run generate-images' aus
 
 // Explizite Imports damit Vite die Bilder als Assets erkennt
-import img1 from '/example-images/20-500x500.jpg?url';
-import img2 from '/example-images/237-500x500.jpg?url';
-import img3 from '/example-images/40-500x500.jpg?url';
-import img4 from '/example-images/49-500x500.jpg?url';
-import img5 from '/example-images/76-500x500.jpg?url';
-import img6 from '/example-images/Bee.png?url';
-import img7 from '/example-images/Butterfly.png?url';
-import img8 from '/example-images/Lemon.png?url';
-import img9 from '/example-images/Owl.png?url';
-import img10 from '/example-images/Penguin.png?url';
-import img11 from '/example-images/Raspberries.png?url';
-import img12 from '/example-images/Turtle.png?url';
+import img1 from '/example-images/Bee.png?url';
+import img2 from '/example-images/Butterfly.png?url';
+import img3 from '/example-images/Einhorn-sm.png?url';
+import img4 from '/example-images/Lemon.png?url';
+import img5 from '/example-images/Owl.png?url';
+import img6 from '/example-images/Papa-sm.png?url';
+import img7 from '/example-images/Penguin.png?url';
+import img8 from '/example-images/Pirat-sm.png?url';
+import img9 from '/example-images/Raspberries.png?url';
+import img10 from '/example-images/Sanitaeterin-sm.png?url';
+import img11 from '/example-images/Schwimmen-sm.png?url';
+import img12 from '/example-images/Torte-sm.png?url';
+import img13 from '/example-images/Turtle.png?url';
+import img14 from '/example-images/Wissenschaftlerin-sm.png?url';
 
-// Gefundene Bilddateien: 20-500x500.jpg, 237-500x500.jpg, 40-500x500.jpg, 49-500x500.jpg, 76-500x500.jpg, Bee.png, Butterfly.png, Lemon.png, Owl.png, Penguin.png, Raspberries.png, Turtle.png
+// Gefundene Bilddateien: Bee.png, Butterfly.png, Einhorn-sm.png, Lemon.png, Owl.png, Papa-sm.png, Penguin.png, Pirat-sm.png, Raspberries.png, Sanitaeterin-sm.png, Schwimmen-sm.png, Torte-sm.png, Turtle.png, Wissenschaftlerin-sm.png
 const imageAssets: string[] = [
   img1,
   img2,
@@ -30,7 +32,9 @@ const imageAssets: string[] = [
   img9,
   img10,
   img11,
-  img12
+  img12,
+  img13,
+  img14
 ];
 
 // Generiere PuzzleImage Array
